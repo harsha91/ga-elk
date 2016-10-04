@@ -1,10 +1,5 @@
 # Docker ELK stack
 
-[![Join the chat at https://gitter.im/deviantony/docker-elk](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/deviantony/docker-elk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-Run the latest version of the ELK (Elasticseach, Logstash, Kibana) stack with Docker and Docker-compose.
-
-It will give you the ability to analyze any data set by using the searching/aggregation capabilities of Elasticseach and the visualization power of Kibana.
 
 Based on the official images:
 
@@ -20,15 +15,6 @@ Based on the official images:
 2. Install [Docker-compose](http://docs.docker.com/compose/install/).
 3. Clone this repository
 
-## SELinux
-
-On distributions which have SELinux enabled out-of-the-box you will need to either re-context the files or set SELinux into Permissive mode in order for docker-elk to start properly.
-For example on Redhat and CentOS, the following will apply the proper context:
-
-````bash
-.-root@centos ~
--$ chcon -R system_u:object_r:admin_home_t:s0 docker-elk/
-````
 
 # Usage
 
@@ -52,9 +38,6 @@ $ nc localhost 5000 < /path/to/logfile.log
 
 And then access Kibana UI by hitting [http://localhost:5601](http://localhost:5601) with a web browser.
 
-*NOTE*: You'll need to inject data into logstash before being able to create a logstash index in Kibana. Then all you should have to do is to
-hit the create button.
-
 See: https://www.elastic.co/guide/en/kibana/current/setup.html#connect
 
 You can also access:
@@ -67,10 +50,6 @@ By default, the stack exposes the following ports:
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
-
-*WARNING*: If you're using *boot2docker*, you must access it via the *boot2docker* IP address instead of *localhost*.
-
-*WARNING*: If you're using *Docker Toolbox*, you must access it via the *docker-machine* IP address instead of *localhost*.
 
 # Configuration
 
@@ -113,27 +92,6 @@ To add plugins to logstash you have to:
 
 1. Add a RUN statement to the `logstash/Dockerfile` (ex. `RUN logstash-plugin install logstash-filter-json`)
 2. Add the associated plugin code configuration to the `logstash/config/logstash.conf` file
-
-## How can I enable a remote JMX connection to Logstash?
-
-As for the Java heap memory, another environment variable allows to specify JAVA_OPTS used by Logstash. You'll need to specify the appropriate options to enable JMX and map the JMX port on the docker host.
-
-Update the container in the `docker-compose.yml` to add the *LS_JAVA_OPTS* environment variable with the following content (I've mapped the JMX service on the port 18080, you can change that), do not forget to update the *-Djava.rmi.server.hostname* option with the IP address of your Docker host (replace **DOCKER_HOST_IP**):
-
-```yml
-logstash:
-  build: logstash/
-  command: logstash -f /etc/logstash/conf.d/logstash.conf
-  volumes:
-    - ./logstash/config:/etc/logstash/conf.d
-  ports:
-    - "5000:5000"
-    - "18080:18080"
-  links:
-    - elasticsearch
-  environment:
-    - LS_JAVA_OPTS=-Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.ssl=false -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.port=18080 -Dcom.sun.management.jmxremote.rmi.port=18080 -Djava.rmi.server.hostname=DOCKER_HOST_IP -Dcom.sun.management.jmxremote.local.only=false
-```
 
 ## How can I tune Elasticsearch configuration?
 
