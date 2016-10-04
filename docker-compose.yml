@@ -16,11 +16,11 @@ logstash:
   links:
     - elasticsearch
     
-# kibana:
-  # build: kibana/
+kibana:
+  build: kibana/
   # volumes:
   #  - ./kibana/config/:/opt/kibana/config/
-  # ports:
-  #  - "5601:5601"
-  # links:
-  #  - elasticsearch
+  ports:
+    - "5601:5601"
+  links:
+    - elasticsearch

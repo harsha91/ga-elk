@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 # Wait for the Elasticsearch container to be ready before starting Kibana.
 echo "Stalling for Elasticsearch"
