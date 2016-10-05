@@ -1,4 +1,4 @@
-# Docker ELK stack
+# Google Analytics with ELK Stack (Docker powered)
 
 
 Based on the official images:
