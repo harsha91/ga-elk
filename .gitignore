@@ -1,2 +1,5 @@
 *.p12
 *.gem
+logstash/config/webApp/node_modules/*
+logstash/config/webApp/node_modules/
+node_modules
