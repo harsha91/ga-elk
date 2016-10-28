@@ -8,20 +8,25 @@
   }
   
   .mWelcome {
-      background: url('background.jpg');
-      background-size: cover;
-  }
-  
-  @media screen and (min-width: 1255px) {
-      .mWelcome {
-          background-position-y: -500px;
-      }
+    background: url('https://c1.staticflickr.com/9/8498/8274993170_8dac5aae7f_b.jpg');
+    // background: url('https://pixabay.com/static/uploads/photo/2016/01/16/07/45/google-analytics-1142957_960_720.jpg')
+    // background-size: cover;
+    min-height: 100%;
+    min-width: 100%;
+    margin-top: -40px;
+    padding: 100px;
+    background-repeat: no-repeat;
+    background-position-x: -290px;
+    background-position-y: -100px;
+}
   }
   
   .text-justify {
       text-align: justify;
   }
-  
+ .welMsg{
+    
+ }
   .loading {
       position: fixed;
       background: rgba(245, 245, 245, 0.77);
@@ -162,6 +167,7 @@
       position: absolute;
       top: 0;
       width: 100%;
+      overflow: auto;
   }
   /* slide in from the right */
   
@@ -245,3 +251,6 @@
   .op {
       left: 300px;
   }
+.scroll-fix{
+    height: 35px;
+}

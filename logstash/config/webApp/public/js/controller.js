@@ -2,10 +2,18 @@ var gaApp = angular.module('gaApp', ['ngRoute','ngAnimate']);
 
 gaApp.config(['$routeProvider',function($routeProvider) {
         $routeProvider
-            // route for the home page
+            // routes
             .when('/', {
                 templateUrl : 'pages/home.html',
                 controller  : 'mainController'
+            })
+            .when('/detailsPage', {
+                templateUrl : 'pages/detailsPage.html',
+                controller  : 'detailsPage'
+            })
+            .when('/about', {
+                    templateUrl : 'pages/About.html',
+                    controller  : 'aboutPage'
             })
     }]);
 gaApp.directive("repeatEnd", function(){
@@ -40,6 +48,24 @@ function allowPatternDirective() {
         }
     };
 } 
+
 gaApp.controller('mainController', ['$scope', '$http', function($scope, $http) {
     $scope.pageClass = 'page-home';
+}]);
+
+gaApp.controller('detailsPage', ['$scope', '$http', function($scope, $http) {
+    $scope.model = {}
+    $scope.pageClass = 'page-detailsPage';
+    $scope.tabber = function(id,$event){
+        $event.preventDefault();
+        $(".tab-pane").removeClass("active");
+        $("#"+id).addClass('active');
+    } 
+    $scope.submit = function(id,$event){
+        $event.preventDefault();
+        var data=$scope.model; 
+        $http.post('/startLogstash', data)
+            .success(function(res){console.log(res)})
+            .error(function(){ alert("Error occured, try again.")});
+    }
 }]);

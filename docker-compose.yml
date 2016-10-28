@@ -9,11 +9,13 @@ elasticsearch:
 logstash:
   build: logstash/
   # image: harsha149/galogstash
+  # command: logstash -f /etc/logstash/conf.d/logstash.conf
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   # volumes:
     # - e:/MS/Capstone/code/ga-elk/logstash/config:/etc/logstash/conf.d
   ports:
     - "5000:5000"
+    - "8080:8080"
   links:
     - elasticsearch
     
