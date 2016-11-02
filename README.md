@@ -21,13 +21,13 @@ Based on the official images:
 Start the ELK stack using *docker-compose*:
 
 ```bash
-$ docker-compose up
+$ docker-compose up --build
 ```
 
 You can also choose to run it in background (detached mode):
 
 ```bash
-$ docker-compose up -d
+$ docker-compose up --build -d
 ```
 
 Now that the stack is running, you'll want to inject logs in it. The shipped logstash configuration allows you to send content via tcp:
