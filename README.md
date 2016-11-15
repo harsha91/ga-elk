@@ -3,13 +3,14 @@
 This project provides a scalable analytics platfrom for creating custom analytics with Google Analytics Data & combine with own datasources. This project queries & extracts google analytics via a Google Analytics plugin in Logstash. Any kind of transformations, Mappings can also be done in the logstash.conf file, Also data from another sources can be incorporated. All the data is assembled into ES database, with custom named indices. 
 Kibana is used to create visualization, the indices can be mixed matched to provide custom visualizations which would not have been possible via Google Analytics alone.
 
+This plaftorm can be deployed on AWS using ECS. Automation for shipping the containers is included.
+
 Possible usage scenarios:
-  1. Tying DevOps data with Google Analytics 
-  2. Tying Social Media Campagians on Twitters, with website traffic from google analytics
-  3. Creating custom visualizations in Kibana
+  * Tying DevOps data with Google Analytics 
+  * Tying Social Media Campagians on Twitters, with website traffic from google analytics
+  * Creating custom visualizations in Kibana
 
 Based on the official images:
-
 * [elasticsearch](https://registry.hub.docker.com/_/elasticsearch/)
 * [logstash](https://registry.hub.docker.com/_/logstash/)
 * [kibana](https://registry.hub.docker.com/_/kibana/)
