@@ -1,0 +1,20 @@
+elasticsearch:
+  command: elasticsearch -Des.network.host=0.0.0.0
+  image: harsha149/gaelk_elasticsearch:1477934078
+  ports:
+  - 9200:9200
+  - 9300:9300
+kibana:
+  image: harsha149/gaelk_kibana:1477934078
+  links:
+  - elasticsearch
+  ports:
+  - 5601:5601
+logstash:
+  command: logstash -f /etc/logstash/conf.d/logstash.conf
+  image: harsha149/gaelk_logstash:1477934078
+  links:
+  - elasticsearch
+  ports:
+  - 5000:5000
+  - 8080:8080
