@@ -1,5 +1,12 @@
 # Google Analytics with ELK Stack (Docker powered)
 
+This project provides a scalable analytics platfrom for creating custom analytics with Google Analytics Data & combine with own datasources. This project queries & extracts google analytics via a Google Analytics plugin in Logstash. Any kind of transformations, Mappings can also be done in the logstash.conf file, Also data from another sources can be incorporated. All the data is assembled into ES database, with custom named indices. 
+Kibana is used to create visualization, the indices can be mixed matched to provide custom visualizations which would not have been possible via Google Analytics alone.
+
+Possible usage scenarios:
+  -> Tying DevOps data with Google Analytics 
+  -> Tying Social Media Campagians on Twitters, with website traffic from google analytics
+  -> Creating custom visualizations in Kibana
 
 Based on the official images:
 
@@ -29,13 +36,6 @@ You can also choose to run it in background (detached mode):
 ```bash
 $ docker-compose up --build -d
 ```
-
-Now that the stack is running, you'll want to inject logs in it. The shipped logstash configuration allows you to send content via tcp:
-
-```bash
-$ nc localhost 5000 < /path/to/logfile.log
-```
-
 And then access Kibana UI by hitting [http://localhost:5601](http://localhost:5601) with a web browser.
 
 See: https://www.elastic.co/guide/en/kibana/current/setup.html#connect
@@ -46,7 +46,6 @@ You can also access:
 *NOTE*: In order to use Sense, you'll need to query the IP address associated to your *network device* instead of localhost.
 
 By default, the stack exposes the following ports:
-* 5000: Logstash TCP input.
 * 9200: Elasticsearch HTTP
 * 9300: Elasticsearch TCP transport
 * 5601: Kibana
@@ -63,8 +62,7 @@ The Kibana default configuration is stored in `kibana/config/kibana.yml`.
 
 The logstash configuration is stored in `logstash/config/logstash.conf`.
 
-The folder `logstash/config` is mapped onto the container `/etc/logstash/conf.d` so you
-can create more than one file in that folder if you'd like to. However, you must be aware that config files will be read from the directory in alphabetical order.
+logstash.conf is copied onto the docker container while the containers is being build. So for the changes to be reflected be sure to use the --build flag with docker-compose up. 
 
 ## How can I specify the amount of memory used by Logstash?
 
