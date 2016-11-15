@@ -4,9 +4,9 @@ This project provides a scalable analytics platfrom for creating custom analytic
 Kibana is used to create visualization, the indices can be mixed matched to provide custom visualizations which would not have been possible via Google Analytics alone.
 
 Possible usage scenarios:
-  -> Tying DevOps data with Google Analytics 
-  -> Tying Social Media Campagians on Twitters, with website traffic from google analytics
-  -> Creating custom visualizations in Kibana
+  1. Tying DevOps data with Google Analytics 
+  2. Tying Social Media Campagians on Twitters, with website traffic from google analytics
+  3. Creating custom visualizations in Kibana
 
 Based on the official images:
 
