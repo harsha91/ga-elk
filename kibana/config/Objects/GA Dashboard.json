@@ -1,0 +1,19 @@
+[
+  {
+    "_id": "SampleDashBoard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "SampleDashBoard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Average-Page-Views\",\"panelIndex\":1,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":4,\"id\":\"Average-page-depth\",\"panelIndex\":2,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Average-time-on-a-page\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Sum-sessions\",\"panelIndex\":4,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Time-on-Page-vs-Page-Title\",\"panelIndex\":5,\"row\":3,\"size_x\":6,\"size_y\":5,\"type\":\"visualization\"},{\"col\":1,\"id\":\"View-Analysis\",\"panelIndex\":6,\"row\":8,\"size_x\":12,\"size_y\":5,\"type\":\"visualization\"},{\"id\":\"UserJourney\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":6,\"size_y\":5,\"col\":1,\"row\":3}]",
+      "optionsJSON": "{\"darkTheme\":true}",
+      "uiStateJSON": "{\"P-5\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  }
+]
