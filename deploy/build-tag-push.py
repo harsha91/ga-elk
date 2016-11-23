@@ -26,11 +26,11 @@ else:
     version = os.environ["VERSION"]
 
 # Execute "docker-compose build" and abort if it fails.
-subprocess.check_call(["docker-compose", "-f", "docker-compose.yml", "build"])
+subprocess.check_call(["docker-compose", "-f", "../docker-compose.yml", "build"])
 
 # Load the services from the input docker-compose.yml file.
 # TODO: run parallel builds.
-compose_file = ComposeFile("docker-compose.yml")
+compose_file = ComposeFile("../docker-compose.yml")
 
 # Iterate over all services that have a "build" definition.
 # Tag them, and initiate a push in the background.
