@@ -1,5 +1,4 @@
 elasticsearch:
-  # image: elasticsearch:latest
   build: elasticsearch/
   command: elasticsearch -Des.network.host=0.0.0.0
   ports:
@@ -8,8 +7,6 @@ elasticsearch:
 
 logstash:
   build: logstash/
-  # image: harsha149/galogstash
-  # command: logstash -f /etc/logstash/conf.d/logstash.conf
   command: logstash -f /etc/logstash/conf.d/logstash.conf
   # volumes:
     # - e:/MS/Capstone/code/ga-elk/logstash/config:/etc/logstash/conf.d
