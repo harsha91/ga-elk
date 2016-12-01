@@ -50,6 +50,10 @@
                     "@timestamp": {
                         "type": "date"
                     },
+                    "ga_keyword":{
+                        "type": "string",
+                        "index": "analyzed"
+                    },
                     "geoip": {
                         "dynamic": true,
                         "properties": {
