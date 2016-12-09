@@ -139,3 +139,22 @@ elasticsearch:
 ```
 
 This will store elasticsearch data inside `/path/to/storage`.
+
+
+## AWS Deployment
+
+In the deploy folder we have a python script(build-tag-push.py) which builds, tags & pushes all the docker containers into the docker hub.
+Docker Hub with Images:
+https://hub.docker.com/r/harsha149/
+The script finally creates the a docker-compose-p:tag.yml for deployment into the production environment.
+
+We can create a ECS Cluster on AWS with the following command (This is done with ecs-cli: http://docs.aws.amazon.com/cli/latest/reference/ecs/)
+```
+ecs-cli up --keypair harsha --capability-iam --size 1 --instance-type t2.medium
+```
+We can deploy the container using the following command 
+```
+ecs-cli compose --file docker-compose-p.yml up
+```
+
+
