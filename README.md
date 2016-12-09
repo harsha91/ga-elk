@@ -59,6 +59,11 @@ By default, the stack exposes the following ports:
 
 The Kibana default configuration is stored in `kibana/config/kibana.yml`.
 
+## How can I load prebuilt Kibana dashboards?
+
+All the Dashboards and Visualizations in Kibana can be exported in the form of JSON objects. We have few visualizations and dashboards in the objects folder under Kibana. These can be imported into Kibana from Setting->Objects->Import page. 
+These Dashboards will work with the indices created and data fetch by the default logstash configuration provided. 
+
 ## How can I tune Logstash configuration?
 
 The logstash configuration is stored in `logstash/config/logstash.conf`.
